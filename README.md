@@ -5,10 +5,10 @@ About 3 minutes after the Docker Container is created, you can connect to the lo
 ```docker-compose -f kafka.yml up -d```
 
 ```yaml
-version: '2'
+version: '3'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:6.1.1
+    image: confluentinc/cp-zookeeper:latest
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -18,7 +18,7 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
 
   broker:
-    image: confluentinc/cp-server:6.1.1
+    image: confluentinc/cp-server:latest
     hostname: broker
     container_name: broker
     depends_on:
@@ -46,7 +46,7 @@ services:
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
 
   control-center:
-    image: confluentinc/cp-enterprise-control-center:6.1.1
+    image: confluentinc/cp-enterprise-control-center:latest
     hostname: control-center
     container_name: control-center
     depends_on:
